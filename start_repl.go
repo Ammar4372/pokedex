@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func start_repl() {
+func start_repl(cfg Config) {
+
 	for {
 		fmt.Printf("PokeDex > ")
 		scanner := bufio.NewScanner(os.Stdin)
@@ -19,9 +20,16 @@ func start_repl() {
 		cmd := words[0]
 		command, exists := getCommands()[cmd]
 		if exists {
-			err := command.callback()
+			if len(words) == 2 {
+				err := command.callback(&cfg, words[1])
+				if err != nil {
+					fmt.Println(err)
+				}
+				continue
+			}
+			err := command.callback(&cfg, "")
 			if err != nil {
-				fmt.Println("err: %w", err)
+				fmt.Println(err)
 			}
 			continue
 

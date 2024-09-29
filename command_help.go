@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func commandHelp() error {
+func commandHelp(cfg *Config, name string) error {
 	commands := getCommands()
 	fmt.Println()
 	fmt.Println("Welcome to the PokeDex!")

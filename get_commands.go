@@ -2,10 +2,10 @@ package main
 
 func getCommands() map[string]command {
 	return map[string]command{
-		"help": {
-			name:        "help",
-			description: "Display a help message",
-			callback:    commandHelp,
+		"explore": {
+			name:        "explore",
+			description: "explore a area",
+			callback:    commandExplore,
 		},
 		"map": {
 			name:        "map",
@@ -16,6 +16,12 @@ func getCommands() map[string]command {
 			name:        "mapb",
 			description: "Display previous twenty location",
 			callback:    commandMapb,
+		},
+
+		"help": {
+			name:        "help",
+			description: "Display a help message",
+			callback:    commandHelp,
 		},
 		"exit": {
 			name:        "exit",
