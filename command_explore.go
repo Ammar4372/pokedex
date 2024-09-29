@@ -9,7 +9,7 @@ func commandExplore(cfg *Config, name string) error {
 		return err
 	}
 	fmt.Println("Found Pokemons:")
-	for _, v := range data.Pokemons {
+	for _, v := range data.PokemonEncounters {
 		fmt.Printf(" - %s \n", v.Pokemon.Name)
 	}
 	return nil

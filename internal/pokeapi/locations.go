@@ -5,13 +5,13 @@ import (
 	"io"
 )
 
-func (api *Client) GetLocations(url *string) (Locations, error) {
+func (api *Client) GetLocations(url *string) (ShallowLocations, error) {
 	pageUrl := baseUrl + "location-area/"
 	if url == nil {
 		url = &pageUrl
 	}
 	if val, ok := api.cache.Get(*url); ok {
-		result := Locations{}
+		result := ShallowLocations{}
 		err := json.Unmarshal(val, &result)
 		if err != nil {
 			return result, err
@@ -20,7 +20,7 @@ func (api *Client) GetLocations(url *string) (Locations, error) {
 	}
 
 	resp, err := api.httpClient.Get(*url)
-	data := Locations{}
+	data := ShallowLocations{}
 	if err != nil {
 		return data, err
 	}
@@ -36,11 +36,11 @@ func (api *Client) GetLocations(url *string) (Locations, error) {
 	return data, nil
 }
 
-func (api *Client) GetLocation(name string) (PokemonEncounters, error) {
+func (api *Client) GetLocation(name string) (Locations, error) {
 	pageUrl := baseUrl + "location-area/" + name
 
 	if val, ok := api.cache.Get(pageUrl); ok {
-		result := PokemonEncounters{}
+		result := Locations{}
 		err := json.Unmarshal(val, &result)
 		if err != nil {
 			return result, err
@@ -49,7 +49,7 @@ func (api *Client) GetLocation(name string) (PokemonEncounters, error) {
 	}
 
 	resp, err := api.httpClient.Get(pageUrl)
-	data := PokemonEncounters{}
+	data := Locations{}
 	if err != nil {
 		return data, err
 	}
