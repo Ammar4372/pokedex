@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func commandMap(cfg *Config, name string) error {
+func commandMap(cfg *Config, name []string) error {
 	data, err := cfg.Client.GetLocations(cfg.Next)
 	if err != nil {
 		return err

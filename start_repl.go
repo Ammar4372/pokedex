@@ -20,14 +20,7 @@ func start_repl(cfg Config) {
 		cmd := words[0]
 		command, exists := getCommands()[cmd]
 		if exists {
-			if len(words) == 2 {
-				err := command.callback(&cfg, words[1])
-				if err != nil {
-					fmt.Println(err)
-				}
-				continue
-			}
-			err := command.callback(&cfg, "")
+			err := command.callback(&cfg, words)
 			if err != nil {
 				fmt.Println(err)
 			}

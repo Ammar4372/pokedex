@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func commandMapb(cfg *Config, name string) error {
+func commandMapb(cfg *Config, name []string) error {
 	if cfg.Previous == nil {
 		return fmt.Errorf("you are on the first page")
 	}

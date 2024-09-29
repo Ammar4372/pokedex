@@ -7,6 +7,21 @@ func getCommands() map[string]command {
 			description: "explore a area",
 			callback:    commandExplore,
 		},
+		"catch": {
+			name:        "catch",
+			description: "catch a pokemon",
+			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect",
+			description: "inspect a pokemon",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "List all Pokemon you have caught",
+			callback:    commandPokedex,
+		},
 		"map": {
 			name:        "map",
 			description: "Display next twenty location",
