@@ -7,7 +7,7 @@ import (
 func commandHelp(cfg *Config, name []string) error {
 	commands := getCommands()
 	fmt.Println()
-	fmt.Println("Welcome to the PokeDex!")
+	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")
 	fmt.Println()
 	for _, v := range commands {

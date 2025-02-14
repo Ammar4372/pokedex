@@ -9,11 +9,12 @@ import (
 
 func start_repl(cfg Config) {
 
+	scanner := bufio.NewScanner(os.Stdin)
 	for {
-		fmt.Printf("PokeDex > ")
-		scanner := bufio.NewScanner(os.Stdin)
+		fmt.Printf("Pokedex > ")
 		scanner.Scan()
-		words := cleanInput(scanner.Text())
+		text := scanner.Text()
+		words := cleanInput(text)
 		if len(words) == 0 {
 			continue
 		}
@@ -24,11 +25,8 @@ func start_repl(cfg Config) {
 			if err != nil {
 				fmt.Println(err)
 			}
-			continue
-
 		} else {
 			fmt.Println("Unknown Command")
-			continue
 		}
 	}
 }
